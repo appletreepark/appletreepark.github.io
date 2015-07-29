@@ -110,7 +110,7 @@ body {
   keys = JSON.parse(decodeURIComponent(keys));
   for(var i = 0; i < keys.length; ++i) {
     $('.postarea').append($(
-      '<h5>' + keys[i].time + '</h5>' +
+      (i == 0 ? ('<h5>' + keys[i].time + '</h5>') : '') +
       '<img src="' + keys[i].url + '">' +
       '<div>' + keys[i].desc + '</div>'
     ));
