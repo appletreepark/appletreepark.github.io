@@ -7,7 +7,7 @@
     <script src="https://cdn1.lncld.net/static/js/av-mini-0.5.4.js"></script>
     <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
-      	AV.initialize("btncvhmubfnz41pa6mxi09u4xgyhoi0p93ohv46zl5n503ta", "qym1hwmb0fd4iucejsepuj80nya7v0qxyh0uxvlnpzo2dmi8");
+      	AV.initialize("oz0nh9298m2xr19hchnlzeskw9i2rtmmxca85h3r8tbsl75s", "xr54r2bl7yv37c4d7oglop3rfqh0nvj65m8d0ep1g6e6og98");
     </script>
     <style>
 * {
@@ -80,6 +80,7 @@ body {
 }
 .newscenter .postarea img {
   width: 100% !important;
+  height: initial !important;
 }
     </style>
 </head>
@@ -114,6 +115,7 @@ body {
       $('.datatwo').text(results.get('from'));
       $('.datathree').text(date);
       father.append($(results.get('content')));
+      $('a').remove();
     }
   });
 </script>
