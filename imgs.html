@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.5.4.js"></script>
+    <script src="zepto_1.1.3.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      	AV.initialize("oz0nh9298m2xr19hchnlzeskw9i2rtmmxca85h3r8tbsl75s", "xr54r2bl7yv37c4d7oglop3rfqh0nvj65m8d0ep1g6e6og98");
+    </script>
+    <style>
+* {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+body {
+  background-color: #f8f8f8;
+}
+.ssmall-font {
+  font-size: 0.7rem;
+}
+.std-width {
+  width: 92%;
+  margin-left: 4%;
+}
+.margin-left {
+  margin-left: 2%;
+}
+.first-top {
+  margin-top: 4%;
+}
+.first-margin {
+  margin-top: 2%;
+}
+.gray-font {
+  color: #aaa;
+}
+.gray-back {
+  background-color: #bfbfbf;
+}
+.newscenter .more {
+  display: inline-block;
+  padding-left: 40px;
+  position: relative;
+  top: -25px;
+  width: 100%;
+}
+.newscenter .info {
+  font-size: 0.8rem;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.newscenter .read {
+  padding-top: 3%;
+  font-size: 0.7rem;
+}
+.newscenter .item {
+  clear: both;
+}
+.newscenter .item img {
+  width: 30%;
+  display: inline-block;
+  float: left;
+}
+.newscenter .item > div {
+  display: inline-block;
+  width: 70%;
+  float: left;
+  padding-left: 4%;
+}
+.newscenter .item .title {
+  font-size: 0.9rem;
+}
+.newscenter .article p {
+  font-size: 0.9rem !important;
+  line-height: 1.6rem;
+  text-indent: 1.8rem;
+}
+.newscenter .postarea img {
+  width: 100% !important;
+  height: initial !important;
+}
+    </style>
+</head>
+<body class='newscenter'>
+<div class="std-width first-top">
+  <div class="weight-font dataone">宝贝们</div>
+  <span class="gray-font first-margin from ssmall-font datatwo"></span><span class="first-margin margin-left gray-font ssmall-font datathree"></span>
+  <div class='postarea'>
+  </div>
+</div>
+<script>
+  var getQueryString = function(url) {
+    var search = url.split("?");
+    if(search.length > 1) {
+      search = search[1];
+    }
+    var temp = search.split('&');
+    var res = {};
+    for(var i = 0; i < temp.length; ++i) {
+      var key = temp[i].split("=")[0];
+      var val = temp[i].split("=")[1];
+      res[key] = val;
+    }
+    return res;
+  }
+  var keys = getQueryString(window.location.href).id;
+  keys = JSON.parse(decodeURIComponent(keys));
+  for(var i = 0; i < keys.length; ++i) {
+    $('.postarea').append($(
+      '<h5>' + keys[i].time + '</h5>' +
+      '<img src="' + keys[i].url + '">' +
+      '<div>' + keys[i].desc + '</div>'
+    ));
+  }
+</script>
+</body>
+</html>
