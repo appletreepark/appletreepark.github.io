@@ -82,6 +82,17 @@ body {
   width: 100% !important;
   height: initial !important;
 }
+.download-button{
+  display: block;
+  text-align: center;
+  background:#ffbabc;
+  height: 40px;
+  line-height: 40px;
+  color: #FFFFFF;
+  text-decoration: none;
+  width: %80;
+  margin:20px auto;
+}
     </style>
 </head>
 <body class='newscenter'>
@@ -89,6 +100,10 @@ body {
   <div class="weight-font dataone">加载中...</div>
   <span class="gray-font first-margin from ssmall-font datatwo"></span><span class="first-margin margin-left gray-font ssmall-font datathree"></span>
   <div class='postarea'>
+  </div>
+  <div class="download">
+    <a href="#" class="download-button" id="android">下载安卓版</a>
+    <a href="#" class="download-button" id="ios">下载IOS版</a>
   </div>
 </div>
 <script>
@@ -106,8 +121,10 @@ body {
     }
     return res;
   }
+ 
   new AV.Query(AV.Object.extend("POST")).get(getQueryString(window.location.href).id, {
     success: function(results) {
+      console.log(results)
       var father = $('.postarea');
       var date = results.getCreatedAt();
       date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
@@ -115,9 +132,27 @@ body {
       $('.datatwo').text(results.get('from'));
       $('.datathree').text(date);
       father.append($(results.get('content')));
-      $('a').remove();
+      //$('a').remove();
+      //获取版本URL
+      var query = new AV.Query(AV.Object.extend("Version"));
+      query.find({
+        success: function(versions) {
+          if (versions && versions.length > 0) {
+            var version = versions[0];
+            setUrl("android",version.get("url"));
+            setUrl("ios",version.get("iosUrl"));
+          }
+        }
+      });
     }
   });
+  function setUrl(id,url){
+      if(url){
+               $("#"+id).attr("href",url);
+            }else{
+               $("#"+id).attr("href","javascript:alert('正在玩命开发中')");
+      }
+  }
 </script>
 </body>
 </html>
